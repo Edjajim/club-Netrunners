@@ -2,7 +2,6 @@ frase = input("Ingresa la frase: ").upper()
 mostrar = ""
 
 cifrado = {"M":"0", "U":"1", "R":"2", "C":"3", "I":"4", "E":"5", "L":"6", "A":"7", "G":"8", "O":"9"}
-descifrar = {"0":"M", "1":"U", "2":"R", "3":"C", "4":"I", "5":"E", "6":"L", "7":"A", "8":"G", "9":"O"}
 
 print("1. Encriptar")
 print("2. Desencriptar")
@@ -13,7 +12,9 @@ for element in frase:
         if opc == 1:
             letra = cifrado[element]
         else:
-            letra = descifrar[element]
+#Convierte en lista las claves del diccionario para manejarlos mediante index
+#Para indicar el index a utilizar convierte en lista los valores para poder usar el método de obtener el index según el caracter correspondiente
+            letra = list(cifrado.keys())[list(cifrado.values()).index(element)]
     except:
         letra = element
 
